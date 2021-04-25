@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<!-- React를 실행. -->
+<!-- 주의: 사이트를 배포할 때는 "development.js"를 "production.min.js"로 대체하세요. -->
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+<script>
+  window.onload = () => {
+    const LikeButton = (props) => {
+      const [liked, setLiked] = React.useState(false)
+
+      return React.createElement(
+        'button',
+        // props
+        { 
+          onClick: () => setLiked(!liked),
+          style: { fontSize: '30px' }
+        },
+        // children
+        liked ? '💕' : '💔',
+      )
+    } 
+
+    const domContainer = document.querySelector('#root')
+    ReactDOM.render(React.createElement(LikeButton), domContainer)
+  }
+  
+</script>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
